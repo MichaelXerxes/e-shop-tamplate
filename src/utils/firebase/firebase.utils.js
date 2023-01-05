@@ -1,7 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getAuth,signInWithRedirect,
-        signInWithPopup,GoogleAuthProvider,} from 'firebase/auth';
+        signInWithPopup,GoogleAuthProvider, EmailAuthCredential,} from 'firebase/auth';
+
+import {getFirestore,doc,getDoc,setDoc} from 'firebase/firestore';
 
 
 
@@ -25,3 +27,26 @@ provider.setCustomParameters({
 });
 export const auth=getAuth();
 export const singInWithPopIpGoogle=()=> signInWithPopup(auth,provider);
+export const signInWithGoogleRedirect=()=>signInWithGoogleRedirect(auth,provider);
+
+export const db=getFirestore();
+export const creatUserDocumentFromAuth=async (userAuth)=>{
+    const userDocRef=doc(db,'users',userAuth.uid);
+
+    const userSnapshot=await getDoc(userDocRef);
+
+    if(!userSnapshot.exists()){
+        const {displayName,email}=userAuth;
+        const creatAt=new Date();
+        try {
+            await setDoc(userDocRef,{
+                displayName,
+                email,
+                creatAt
+
+             } );
+        }catch(error){
+
+        }
+    }
+};
