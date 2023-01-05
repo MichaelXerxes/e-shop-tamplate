@@ -20,6 +20,9 @@ const Navigation =()=>{
                 <Link className="nav-link" to="/sign-in">
                     Sing-In
                 </Link>
+                <Link className="nav-link" to="/sign-up-form">
+                    Sing-Up From!
+                </Link>
             </div>
         </div>
         <Outlet/>
