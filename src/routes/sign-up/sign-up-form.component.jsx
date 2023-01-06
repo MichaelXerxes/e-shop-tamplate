@@ -1,3 +1,4 @@
+import './sign-up-form.styles.scss';
 import { async } from "@firebase/util";
 import { useState } from "react";
 import { createAuthUserWithEmAndPass, creatUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
@@ -47,7 +48,8 @@ const SignUpForm=()=>{
 
     return  (
         <div>
-            <h1>Sign Up with email and password</h1>
+            <h2>Don`t have an account?</h2>
+            <span>Sign Up with email and password</span>
             <form onSubmit={{handleSubmit}}>
             <FormInput
           label='Display Name'
