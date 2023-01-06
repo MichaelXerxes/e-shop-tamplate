@@ -10,6 +10,7 @@ export const UserContext=createContext({
 export const UserProvider=({children})=>{
     const[currentUser,setCurrenUser]=useState(null);
     const value={currentUser,setCurrenUser};
+    
     useEffect(()=>{
         const unSubscribe=onAuthStateChangeListener((user)=>{
             if(user){

@@ -1,7 +1,24 @@
+import './shop.styles.scss';
+import SHOP_DATA from '../../shop-data.json';
+
+
 const Shop=()=>{
     return (
       <div>
-        <h1>I`m Shop page!</h1>
+        {SHOP_DATA.map(({id,name,imageUrl,price})=>(
+         <div className='category-container'>
+         <div
+           className='background-image'
+           style={{
+             backgroundImage: `url(${imageUrl})`,
+           }}
+         />
+         <div className='category-body-container'>
+           <h4>Price: {price}</h4>
+           <p>Buy Now</p>
+         </div>
+       </div>
+        ))};
       </div>
     );
   }
