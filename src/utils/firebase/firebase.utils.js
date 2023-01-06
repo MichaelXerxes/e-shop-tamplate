@@ -2,7 +2,8 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import {getAuth,signInWithRedirect,
         signInWithPopup,GoogleAuthProvider, 
-        EmailAuthCredential,createUserWithEmailAndPassword} from 'firebase/auth';
+        EmailAuthCredential,createUserWithEmailAndPassword,
+        signInWithEmailAndPassword} from 'firebase/auth';
 
 import {getFirestore,doc,getDoc,setDoc} from 'firebase/firestore';
 
@@ -37,7 +38,7 @@ export const creatUserDocumentFromAuth=async (userAuth,additionalInformation={})
     //
     const userDocRef=doc(db,'users',userAuth.uid);
 
-    
+
     const userSnapshot=await getDoc(userDocRef);
 
     if(!userSnapshot.exists()){
@@ -63,4 +64,12 @@ export const createAuthUserWithEmAndPass=async(email,password)=>{
 
 
     createUserWithEmailAndPassword(auth,email,password);
+};
+
+
+export const signInAuthUserWithEmAndPass=async(email,password)=>{
+    if(!email|| !password) return;
+
+
+    signInWithEmailAndPassword(auth,email,password);
 };

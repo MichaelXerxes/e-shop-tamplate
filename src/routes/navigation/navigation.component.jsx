@@ -11,18 +11,23 @@ const Navigation =()=>{
                 <CrwnLogo className="logo"/>
             </Link>
              <div className="nav-links-container">
+             <Link className="nav-link" to="/">
+                    Home
+                </Link>
                 <Link className="nav-link" to="/shop">
                     Shop
                 </Link>
-                <Link className="nav-link" to="/">
-                    Home
-                </Link>
-                <Link className="nav-link" to="/sign-in">
-                    Sing-In
+                
+                <Link className="nav-link" to="/authentication">
+                    Log-In
                 </Link>
                 <Link className="nav-link" to="/sign-up-form">
-                    Sing-Up From!
+                    Sing-Up
                 </Link>
+                <Link className="nav-link" to="/sign-in-form">
+                    Sing-In
+                </Link>
+                
             </div>
         </div>
         <Outlet/>

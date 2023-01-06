@@ -2,7 +2,10 @@ import {singInWithPopIpGoogle,creatUserDocumentFromAuth, auth} from '../../utils
 import { useEffect } from 'react';
 import { getRedirectResult } from 'firebase/auth';
 import { async } from '@firebase/util';
-const SignIn=()=>{
+import SignInForm from '../sign-in/sign-in-form.component';
+import SignUpForm from '../sign-up/sign-up-form.component';
+
+const Authentication=()=>{
 
    /* useEffect( ()=>{
       const  getResponse=async() =>{
@@ -16,21 +19,22 @@ const SignIn=()=>{
 
 
     const logoGoogleUser=async ()=>{
-        const response =await singInWithPopIpGoogle();
-        creatUserDocumentFromAuth(response);
+        const {user} =await singInWithPopIpGoogle();
+        const userDocRef=creatUserDocumentFromAuth(user);
     }
 
     return (
         <div>
             <h1>Sign In</h1>
-           <button  onClick={singInWithPopIpGoogle}>
+          {/* <button  onClick={logoGoogleUser}>
             Sign In with PopUp Google
-            </button>
-            <h1>Sign In</h1>
+    </button>*/}
+            <SignInForm/>
+            <SignUpForm/>
         </div>
     );
 };
 
 
 
-export default SignIn;
+export default Authentication;
