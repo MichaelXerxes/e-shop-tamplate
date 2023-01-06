@@ -1,5 +1,6 @@
 import {singInWithPopIpGoogle,creatUserDocumentFromAuth, auth} from '../../utils/firebase/firebase.utils';
 import { useEffect } from 'react';
+import './authentication.styles.scss';
 import { getRedirectResult } from 'firebase/auth';
 import { async } from '@firebase/util';
 import SignInForm from '../sign-in/sign-in-form.component';
@@ -24,17 +25,24 @@ const Authentication=()=>{
     }
 
     return (
-        <div>
-            <h1>Sign In</h1>
-          {/* <button  onClick={logoGoogleUser}>
-            Sign In with PopUp Google
-    </button>*/}
-            <SignInForm/>
-            <SignUpForm/>
-        </div>
+       
+        <div className='authentication-container'>
+        <SignInForm/>
+        <SignUpForm />
+      </div>
+
+        
+            
+         
     );
 };
 
-
+const Trash=()=> {/* <div className='authentication-containe'>
+           <button  onClick={logoGoogleUser}>
+            Sign In with PopUp Google
+    </button>
+    <SignInForm/>
+            <SignUpForm/>
+        </div>*/};
 
 export default Authentication;

@@ -2,7 +2,7 @@ import './sign-in-form.styles.scss';
 import { async } from "@firebase/util";
 import { useState } from "react";
 import { createAuthUserWithEmAndPass, creatUserDocumentFromAuth ,
-    signInWithEmailAndPassword,singInWithPopIpGoogle} from "../../utils/firebase/firebase.utils";
+    signInAuthUserWithEmAndPass,singInWithPopIpGoogle} from "../../utils/firebase/firebase.utils";
 import FormInput from "../../components/form-input/form-input.component";
 import ButtonC from '../../components/button/button.component';
 const defaultformFields={
@@ -30,11 +30,17 @@ const SignInForm=()=>{
        
 
         try{
-            const response = await signInWithEmailAndPassword(email,password);
+            const response = await signInAuthUserWithEmAndPass(
+                email,password
+                );
         
             resetFormFields();
         }catch(e){
-          
+          if(e.code==='auth/wrong-password'){
+            alert('incorect password, Please try again.');
+          }else if (e.code==='auth/user-not-found'){
+            alert('incorect login details, Please try again.');
+          }
         }
 
     };
@@ -72,7 +78,9 @@ const SignInForm=()=>{
 
        <div className='buttons-container'>
        <ButtonC buttonType='inverted' type="submit">Sign Up</ButtonC>
-                <ButtonC buttonType='google' onClick={signInWIthGoogleUser}>Sign In</ButtonC>
+       <ButtonC buttonType='google' onClick={signInWIthGoogleUser}
+                type='button'
+       >Sign In</ButtonC>
        </div>
                 
                 
