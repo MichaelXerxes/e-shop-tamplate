@@ -3,7 +3,7 @@ import { async } from "@firebase/util";
 import { useState } from "react";
 import { createAuthUserWithEmAndPass, creatUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
 import FormInput from "../../components/form-input/form-input.component";
-
+import ButtonC from '../../components/button/button.component';
 const defaultformFields={
     displayName:'',
     email:'',
@@ -86,7 +86,7 @@ const SignUpForm=()=>{
           name='confirmPassword'
           value={confirmPassword}
         />
-                <button type="submit">Sign Up</button>
+                <ButtonC buttonType='google' type="submit">Sign Up</ButtonC>
             </form>
         </div>
     );
