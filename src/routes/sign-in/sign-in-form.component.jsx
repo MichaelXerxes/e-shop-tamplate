@@ -1,6 +1,6 @@
 import './sign-in-form.styles.scss';
 import { async } from "@firebase/util";
-import { useState,useContext } from "react";
+import { useState } from "react";
 import { createAuthUserWithEmAndPass, creatUserDocumentFromAuth ,
     signInAuthUserWithEmAndPass,singInWithPopIpGoogle} from "../../utils/firebase/firebase.utils";
 import FormInput from "../../components/form-input/form-input.component";
@@ -15,14 +15,15 @@ const SignInForm=()=>{
     const [formFields,setFormFields]=useState(defaultformFields);
 
     const{email,password}=formFields;
-    const {setCurrenrUser}=useContext(UserContext);
+    //const {setCurrenrUser}=useContext(UserContext);
 
     const resetFormFields=()=>{
         resetFormFields();
     };
     const signInWIthGoogleUser=async ()=>{
-        const {user} =await singInWithPopIpGoogle();
-       creatUserDocumentFromAuth(user);
+        await singInWithPopIpGoogle();
+        //setCurrenrUser(user);
+       
     }
 
     const handleSubmit=async(event)=>{
@@ -32,11 +33,11 @@ const SignInForm=()=>{
        
 
         try{
-            const {user} = await signInAuthUserWithEmAndPass(
+            await signInAuthUserWithEmAndPass(
                 email,password
                 );
 
-                setCurrenrUser(user);
+               // setCurrenrUser(user);
         
             resetFormFields();
         }catch(e){
@@ -59,7 +60,7 @@ const SignInForm=()=>{
         <div>
             <h2>ALready have an account</h2>
             <span>Sign In with email and password</span>
-            <form onSubmit={{handleSubmit}}>
+            <form onSubmit={handleSubmit}>
         
 
         <FormInput

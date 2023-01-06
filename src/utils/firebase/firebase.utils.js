@@ -3,7 +3,8 @@ import { getAnalytics } from "firebase/analytics";
 import {getAuth,signInWithRedirect,
         signInWithPopup,GoogleAuthProvider, 
         EmailAuthCredential,createUserWithEmailAndPassword,
-        signInWithEmailAndPassword} from 'firebase/auth';
+        signInWithEmailAndPassword,signOut,
+        onAuthStateChanged} from 'firebase/auth';
 
 import {getFirestore,doc,getDoc,setDoc} from 'firebase/firestore';
 
@@ -73,3 +74,8 @@ export const signInAuthUserWithEmAndPass=async(email,password)=>{
 
     signInWithEmailAndPassword(auth,email,password);
 };
+
+export const singOutUser=async ()=>await signOut(auth);
+
+export const onAuthStateChangeListener=(callback)=>
+    onAuthStateChanged(auth,callback);

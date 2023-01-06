@@ -1,9 +1,10 @@
 import './sign-up-form.styles.scss';
 import { async } from "@firebase/util";
-import { useState } from "react";
+import { useState} from "react";
 import { createAuthUserWithEmAndPass, creatUserDocumentFromAuth } from "../../utils/firebase/firebase.utils";
 import FormInput from '../../components/form-input/form-input.component';
 import ButtonC from '../../components/button/button.component';
+import { UserContext } from '../../contexts/user.context';
 const defaultformFields={
     displayName:'',
     email:'',
@@ -14,7 +15,9 @@ const SignUpForm=()=>{
     const [formFields,setFormFields]=useState(defaultformFields);
 
     const{displayName,email,password,confirmPassword}=formFields;
-
+    //that`s hooked component
+   // const {setCurrentUser}=useContext(UserContext);
+    console.log('hit');
     const resetFormFields=()=>{
         resetFormFields();
     };
@@ -29,7 +32,13 @@ const SignUpForm=()=>{
         }
 
         try{
-            const {user}=await createAuthUserWithEmAndPass(email,password);
+            const {user}=await createAuthUserWithEmAndPass(
+                email,
+                password
+                );
+
+            //setCurrentUser(user);
+
             await creatUserDocumentFromAuth(user,{displayName});
             // if is succeeded
         }catch(e){
@@ -50,10 +59,11 @@ const SignUpForm=()=>{
         <div>
             <h2>Don`t have an account?</h2>
             <span>Sign Up with email and password</span>
-            <form onSubmit={{handleSubmit}}>
+            <form onSubmit={handleSubmit}>
             <FormInput
           label='Display Name'
           type='text'
+
           required
           onChange={handleChange}
           name='displayName'
