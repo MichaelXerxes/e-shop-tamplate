@@ -4,9 +4,10 @@ import './navigation.styles.scss';
 import { ReactComponent as CrwnLogo } from "../navigation/crown.svg";
 import { UserContext } from "../../contexts/user.context";
 import {singOutUser} from '../../utils/firebase/firebase.utils';
-import CartIcon from "../../components/card-icon/cart-icon.components";
+import CartIcon from "../../components/cart-icon/cart-icon.components";
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
 import { CartContext } from "../../contexts/cart.context";
+import TestDisplay from "../test-display/test-display.component";
 
 const Navigation =()=>{
     const {currentUser}=useContext(UserContext);
@@ -21,6 +22,9 @@ const Navigation =()=>{
                 <CrwnLogo className="logo"/>
             </Link>
              <div className="nav-links-container">
+             <Link className="nav-link" to="/test-display">
+                   Test
+                </Link>
              <Link className="nav-link" to="/">
                     Home
                 </Link>

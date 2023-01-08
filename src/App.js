@@ -5,6 +5,7 @@ import Authentication from "./routes/authentication/authentication.component";
 import Shop from "./routes/shop/shop.component";
 import SignInForm from "./routes/sign-in/sign-in-form.component";
 import SignUpForm from "./routes/sign-up/sign-up-form.component";
+import TestDisplay from "./routes/test-display/test-display.component";
 
 
 const  App=()=> {
@@ -17,6 +18,7 @@ const  App=()=> {
       <Route path="authentication" element={<Authentication/>}/>
       <Route path="sign-up-form" element={<SignUpForm/>}/>
       <Route path="sign-in-form" element={<SignInForm/>}/>
+      <Route path="test-display" element={<TestDisplay/>}/>
       </Route>
      
          
