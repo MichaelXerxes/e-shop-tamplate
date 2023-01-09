@@ -15,6 +15,7 @@
     cursor: pointer;
     display: flex;
     justify-content: center;
+    white-space: nowrap;
   
     &:hover {
       background-color: white;
@@ -37,6 +38,16 @@
       color: black;
       border: 1px solid black;
   
+      &:hover {
+        background-color: black;
+        color: white;
+        border: none;
+      }
+    }
+    &.red{
+      background-color: rgb(14, 13, 13);
+      color: rgb(7, 149, 76);
+      border: 5px solid rgb(187, 123, 5);
       &:hover {
         background-color: black;
         color: white;

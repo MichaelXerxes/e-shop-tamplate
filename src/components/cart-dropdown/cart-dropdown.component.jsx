@@ -1,10 +1,18 @@
 import './cart-dropdown.styles.scss';
-import { useContext } from 'react';
+import { useContext,useEffect } from 'react';
 import { CartContext } from '../../contexts/cart.context';
 import ButtonC from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';
 const CartDropdown=()=>{
     const {cartItems}=useContext(CartContext);
+
+   /* useEffect(() => {
+        const count = cartItems.reduce(
+          (total, cartItem) => total + cartItem.quantity,
+          0
+        );
+        setCartItemCount(count);
+      }, [cartItems]);*/
 
     return(
         <div className='cart-dropdown-container'>

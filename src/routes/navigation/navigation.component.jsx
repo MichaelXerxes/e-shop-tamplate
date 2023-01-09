@@ -9,6 +9,8 @@ import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component
 import { CartContext } from "../../contexts/cart.context";
 import TestDisplay from "../test-display/test-display.component";
 
+
+
 const Navigation =()=>{
     const {currentUser}=useContext(UserContext);
     console.log(currentUser);
@@ -20,7 +22,10 @@ const Navigation =()=>{
         <div className="navigation">
             <Link className="logo-container" to='/'>
                 <CrwnLogo className="logo"/>
+              
+                
             </Link>
+            
              <div className="nav-links-container">
              <Link className="nav-link" to="/test-display">
                    Test

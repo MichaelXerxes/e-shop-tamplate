@@ -5,7 +5,7 @@ const CartItem=({cartItem})=>{
     return (
         <div>
             <h2>{name}</h2>
-            <span>{quantity}</span>
+            <span>Quantity: {quantity}</span>
         </div>
     );
 }
