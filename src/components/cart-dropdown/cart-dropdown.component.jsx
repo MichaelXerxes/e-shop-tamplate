@@ -1,18 +1,16 @@
 import './cart-dropdown.styles.scss';
-import { useContext,useEffect } from 'react';
+import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { CartContext } from '../../contexts/cart.context';
 import ButtonC from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';
 const CartDropdown=()=>{
     const {cartItems}=useContext(CartContext);
+    const navigate=useNavigate();
 
-   /* useEffect(() => {
-        const count = cartItems.reduce(
-          (total, cartItem) => total + cartItem.quantity,
-          0
-        );
-        setCartItemCount(count);
-      }, [cartItems]);*/
+    const goToChekOutHandler=()=>{
+        navigate('/checkout');
+    };
 
     return(
         <div className='cart-dropdown-container'>
@@ -23,7 +21,7 @@ const CartDropdown=()=>{
 
                 }
             </div>
-            <ButtonC buttonType='inverted'>Go to Checkout!</ButtonC> 
+            <ButtonC buttonType='inverted' onClick={goToChekOutHandler}>Go to Checkout!</ButtonC> 
         </div>
     );
 };
