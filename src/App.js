@@ -15,7 +15,7 @@ const  App=()=> {
     <Routes>
       <Route path="/" element={<Navigation/>}>
       <Route index element={<Home/>}/>
-      <Route path="shop" element={<Shop/>}/>
+      <Route path="shop/*" element={<Shop/>}/>
       <Route path="authentication" element={<Authentication/>}/>
       <Route path="sign-up-form" element={<SignUpForm/>}/>
       <Route path="sign-in-form" element={<SignInForm/>}/>
