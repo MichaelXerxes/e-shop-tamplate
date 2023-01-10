@@ -10,6 +10,7 @@ import {getFirestore,doc,getDoc,setDoc,collection,writeBatch,query,getDocs} from
 
 
 
+
 const firebaseConfig = {
   apiKey: "AIzaSyD1Cslwd4B9mNkiIICGY1OLtlEF9WqyHWU",
   authDomain: "e-shop-tamplate-new.firebaseapp.com",
@@ -49,9 +50,11 @@ export const getCategoriesAndDocumentsFromFirestore=async()=>{
 
     const querySnapshot=await getDocs(queryObject);
     const categoryMap=querySnapshot.docs.reduce((acc,docSnapshot)=>{
-        
-        const{title ,items}=docSnapshot.data();
-        acc[title.toLowerCase()]=items;
+
+        const{title,items}=docSnapshot.data();
+        title.toLowerCase();
+
+        acc[title]=items;
 
         return acc;
 

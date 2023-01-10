@@ -18,6 +18,7 @@ export const CategoriesProvider = ({ children }) => {
   },[]);*/ // just one for now.Data stored
 
   useEffect(() => {
+    
     const getCategoriesMap = async () => {
       const categoryMap =await getCategoriesAndDocumentsFromFirestore('categories');
      // console.log('Should be Object');
