@@ -3,7 +3,7 @@ import SHOP_DATA from "../../shop-data.json";
 import ProductCard from "../../components/product-card/product-card.component";
 import { useContext, Fragment } from "react";
 import { CategoriesContext } from "../../contexts/categories.context";
-import CategoryPreview from "../../components/category-preview/category-preview.component";
+
 import { Route,Routes } from "react-router-dom";
 import CategoriesPreviewPage from "../categories-preview/categories-preview.component";
 import Category from "../category/category.component";

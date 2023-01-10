@@ -3,7 +3,7 @@ import './directory-item.styles.scss';
 const DirectoryItem= ({ imageUrl, title })  =>{
  
   return (
-    <div className='directory-container'>
+    <div className='directory-item-container'>
       <div
         className='directory-background-image'
         style={{
