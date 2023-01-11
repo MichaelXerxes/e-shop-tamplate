@@ -4,7 +4,7 @@ import { useState } from "react";
 import { createAuthUserWithEmAndPass, creatUserDocumentFromAuth ,
     signInAuthUserWithEmAndPass,singInWithPopIpGoogle} from "../../utils/firebase/firebase.utils";
 import FormInput from "../../components/form-input/form-input.component";
-import ButtonC from '../../components/button/button.component';
+import ButtonC,{BUTTON_TYPE_CLASSES} from '../../components/button/button.component';
 import { UserContext } from '../../contexts/user.context';
 const defaultformFields={
     email:'',
@@ -83,7 +83,7 @@ const SignInForm=()=>{
 
        <div className='buttons-container'>
        <ButtonC buttonType='inverted' type="submit">Sign Up</ButtonC>
-       <ButtonC buttonType='google' onClick={signInWIthGoogleUser}
+       <ButtonC buttonType={BUTTON_TYPE_CLASSES.google} onClick={signInWIthGoogleUser}
                 type='button'
        >Sign In</ButtonC>
        </div>
