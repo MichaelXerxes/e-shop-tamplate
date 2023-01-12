@@ -1,16 +1,16 @@
 import styled from "styled-components";
-
-export const  BackgroundImage=styled.div`
+//background-image:${({imageUrl})=>`url(${imageUrl})`};
+ const  BackgroundImage=styled.div`
 width: 100%;
 height: 100%;
 background-size: cover;
 background-position: center;
-background-image:${({imageUrlFrom})=>`url(${imageUrlFrom})`};
+
 
 `;
 
 
-export const Body=styled.div`
+const Body=styled.div`
 height: 90px;
 padding: 0 25px;
 display: flex;
@@ -27,6 +27,7 @@ h2 {
   margin: 0 6px 0;
   font-size: 22px;
   color: #4a4a4a;
+  text-transform: uppercase;
 }
 
 p {
@@ -35,7 +36,7 @@ p {
 }
 `;
 
-export const DirectoryItemContainer=styled.div`
+ const DirectoryItemContainer=styled.div`
 min-width: 30%;
 height: 240px;
 flex: 1 1 auto;
