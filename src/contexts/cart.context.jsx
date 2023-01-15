@@ -1,5 +1,5 @@
-import { createContext, useState, useEffect,useReducer } from "react";
-import { act } from "react-dom/test-utils";
+import { createContext,useReducer } from "react";
+
 
 import { createAction } from "../utils/reducer/reducer.utils";
 export const CartContext = createContext({
@@ -85,30 +85,10 @@ const clearCartItem=(cartItems,cartItemToClear)=>{
 };
 
 export const CartProvider = ({ children }) => {
-  // const [isCartOpen, setIsCartOpen] = useState(false);
-  // const [cartItems, setCartItems] = useState([]);
-  // const [cartItemCount, setCartItemCount] = useState(0);
-  // const [cartTotal, setCartTotal] = useState(0);
-
-  // useEffect(() => {
-  //   const count = cartItems.reduce(
-  //     (total, cartItem) => total + cartItem.quantity,
-  //     0
-  //   );
-  //   setCartItemCount(count);
-  // }, [cartItems]);
-
-  // useEffect(() => {
-  //   const newCartTotal= cartItems.reduce(
-  //     (total, cartItem) => total + cartItem.quantity * cartItem.price,
-  //     0
-  //   );
-  //   setCartTotal(newCartTotal);
-  // }, [cartItems]);
 
   const [{cartItems,isCartOpen,cartItemCount,cartTotal},dispatch]=useReducer(cartReducer,INITIAL_STATE);
   
-  // Reducer
+ 
   const updateCartItemReducer=(newCartItems)=>{
     const newCartCount = newCartItems.reduce(
       (total, cartItem) => total + cartItem.quantity,

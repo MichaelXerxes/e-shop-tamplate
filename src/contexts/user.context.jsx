@@ -1,6 +1,5 @@
-import { type } from "@testing-library/user-event/dist/type";
-import { createContext,useState,useEffect,useReducer } from "react";
-import { onAuthStateChangeListener,singOutUser,creatUserDocumentFromAuth } from "../utils/firebase/firebase.utils";
+import { createContext,useEffect,useReducer } from "react";
+import { onAuthStateChangeListener,creatUserDocumentFromAuth } from "../utils/firebase/firebase.utils";
 import { createAction } from "../utils/reducer/reducer.utils";
 // actual value
 export const UserContext=createContext({
@@ -30,7 +29,7 @@ const INITIAL_STATE={
     currentUser:null
 }
 export const UserProvider=({children})=>{
-    //const[currentUser,setCurrenUser]=useState(null);
+   
     const [state,dispatch]=useReducer(userReducer,INITIAL_STATE);
 
     const {currentUser}=state;
