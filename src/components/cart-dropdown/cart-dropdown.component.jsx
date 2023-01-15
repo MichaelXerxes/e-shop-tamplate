@@ -6,6 +6,8 @@ import ButtonC from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';
 const CartDropdown=()=>{
     const {cartItems}=useContext(CartContext);
+   
+
     const navigate=useNavigate();
 
     const goToChekOutHandler=()=>{
