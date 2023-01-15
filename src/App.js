@@ -1,4 +1,5 @@
 import { Routes,Route, Outlet } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import Home from "./routes/home/home.component";
 import Navigation from "./routes/navigation/navigation.component";
 import Authentication from "./routes/authentication/authentication.component";
@@ -7,10 +8,27 @@ import SignInForm from "./routes/sign-in/sign-in-form.component";
 import SignUpForm from "./routes/sign-up/sign-up-form.component";
 import TestDisplay from "./routes/test-display/test-display.component";
 import CheckOut from "./routes/checkout/checkout.component";
+import { useEffect } from "react";
+import { onAuthStateChangeListener,creatUserDocumentFromAuth } from "./utils/firebase/firebase.utils";
+import { setCurrenUser } from "./store/user/user.action";
+
 
 
 const  App=()=> {
- 
+
+ const dispatch=useDispatch();
+
+  useEffect(() => {
+    const unSubscribe = onAuthStateChangeListener((user) => {
+      if (user) {
+        creatUserDocumentFromAuth(user);
+      }
+      dispatch(setCurrenUser(user));
+    });
+
+    return unSubscribe;
+  }, [dispatch]);
+
   return (
     <Routes>
       <Route path="/" element={<Navigation/>}>
