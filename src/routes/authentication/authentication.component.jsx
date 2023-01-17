@@ -7,22 +7,10 @@ import SignInForm from '../sign-in/sign-in-form.component';
 import SignUpForm from '../sign-up/sign-up-form.component';
 
 const Authentication=()=>{
-
-   /* useEffect( ()=>{
-      const  getResponse=async() =>{
-       const response=await getRedirectResult(auth);
-       if(response){
-        const userDocRef=await creatUserDocumentFromAuth(response.user);
-       }
-       };
-        
-    },[]);*/
-
-
-    const logoGoogleUser=async ()=>{
-        const {user} =await singInWithPopIpGoogle();
-        const userDocRef=creatUserDocumentFromAuth(user);
-    }
+    // const logoGoogleUser=async ()=>{
+    //     const {user} =await singInWithPopIpGoogle();
+    //     const userDocRef=creatUserDocumentFromAuth(user);
+    // }
 
     return (
        
@@ -37,12 +25,5 @@ const Authentication=()=>{
     );
 };
 
-const Trash=()=> {/* <div className='authentication-containe'>
-           <button  onClick={logoGoogleUser}>
-            Sign In with PopUp Google
-    </button>
-    <SignInForm/>
-            <SignUpForm/>
-        </div>*/};
 
 export default Authentication;

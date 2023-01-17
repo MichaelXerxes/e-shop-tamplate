@@ -15,7 +15,6 @@ const SignInForm=()=>{
     const [formFields,setFormFields]=useState(defaultformFields);
 
     const{email,password}=formFields;
-    //const {setCurrenrUser}=useContext(UserContext);
 
     const resetFormFields=()=>{
         resetFormFields();
@@ -37,7 +36,6 @@ const SignInForm=()=>{
                 email,password
                 );
 
-               // setCurrenrUser(user);
         
             resetFormFields();
         }catch(e){
@@ -85,7 +83,7 @@ const SignInForm=()=>{
        <ButtonC buttonType='inverted' type="submit">Sign Up</ButtonC>
        <ButtonC buttonType={BUTTON_TYPE_CLASSES.google} onClick={signInWIthGoogleUser}
                 type='button'
-       >Sign In</ButtonC>
+       >Sign In with Google PopUp</ButtonC>
        </div>
                 
                 

@@ -13,7 +13,7 @@ import { selectCurrentUser } from "../../store/user/user.selector";
 const Navigation = () => {
   //const { currentUser } = useContext(UserContext);
   //console.log(currentUser);
-  const currentUser=useSelector(selectCurrentUser);
+  const currentUser = useSelector(selectCurrentUser);
 
   const { isCartOpen } = useContext(CartContext);
 
@@ -25,9 +25,6 @@ const Navigation = () => {
         </Link>
 
         <div className="nav-links-container">
-          <Link className="nav-link" to="/test-display">
-            Test
-          </Link>
           <Link className="nav-link" to="/">
             Home
           </Link>
@@ -39,17 +36,19 @@ const Navigation = () => {
               Sign Out
             </span>
           ) : (
-            <Link className="nav-link" to="/authentication">
-              Log-In
-            </Link>
-          )}
+            <div>
+              <Link className="nav-link" to="/authentication">
+                Log-In
+              </Link>
 
-          <Link className="nav-link" to="/sign-up-form">
-            Sing-Up
-          </Link>
-          <Link className="nav-link" to="/sign-in-form">
-            Sing-In
-          </Link>
+              <Link className="nav-link" to="/sign-up-form">
+                Sing-Up
+              </Link>
+              <Link className="nav-link" to="/sign-in-form">
+                Sing-In
+              </Link>
+            </div>
+          )}
           <CartIcon />
         </div>
         {isCartOpen && <CartDropdown />}
