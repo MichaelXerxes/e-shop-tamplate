@@ -22,6 +22,7 @@ import {
   query,
   getDocs,
 } from "firebase/firestore";
+import { ResultType } from "@remix-run/router/dist/utils";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD1Cslwd4B9mNkiIICGY1OLtlEF9WqyHWU",
@@ -32,6 +33,7 @@ const firebaseConfig = {
   appId: "1:121217583242:web:602474f3bb7116c9d6c573",
   measurementId: "G-N8PY26CRZF",
 };
+
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
@@ -58,31 +60,14 @@ export const addCollectionAndDocuments = async (
   await batch.commit();
 };
 
-// export const getCategoriesAndDocumentsFromFirestore = async () => {
-//   const collectionRef = collection(db, "categories");
-//   const queryObject = query(collectionRef);
-
-//   const querySnapshot = await getDocs(queryObject);
-//   const categoryMap = querySnapshot.docs
-//   .reduce((acc, docSnapshot) => {
-//     const { title, items } = docSnapshot.data();
-//     title.toLowerCase();
-
-//     acc[title] = items;
-
-//     return acc;
-//   }, {});
-
-//   return categoryMap;
-// };
 export const getCategoriesAndDocumentsFromFirestore = async () => {
-    const collectionRef = collection(db, "categories");
-    const queryObject = query(collectionRef);
-  
-    const querySnapshot = await getDocs(queryObject);
-    console.log(querySnapshot);
-    return querySnapshot.docs.map((docSnapshot)=>docSnapshot.data());
-  };
+  const collectionRef = collection(db, "categories");
+  const queryObject = query(collectionRef);
+
+  const querySnapshot = await getDocs(queryObject);
+  return querySnapshot.docs.map((docSnapshot)=>docSnapshot.data);
+};
+
 export const singInWithPopIpGoogle = () => signInWithPopup(auth, provider);
 export const signInWithGoogleRedirect = () =>
   signInWithGoogleRedirect(auth, provider);
