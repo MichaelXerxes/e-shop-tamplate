@@ -12,7 +12,10 @@ export const CartContext = createContext({
   cartItemCount: 0,
   cartTotal:0,
 });
-
+const CART_ACTION_TYPE={
+  SET_CART_ITEMS:'SET_CART_ITEMS',
+  SET_IS_CART_OPEN:'SET_IS_CART_OPEN',
+};
 
 const INITIAL_STATE={
   isCartOpen: false,
@@ -21,10 +24,7 @@ const INITIAL_STATE={
   cartTotal:0,
 };
 
-const CART_ACTION_TYPE={
-  SET_CART_ITEMS:'SET_CART_ITEMS',
-  SET_IS_CART_OPEN:'SET_IS_CART_OPEN',
-};
+
 
 const cartReducer=(state,action)=>{
   const {type,payload}=action;
