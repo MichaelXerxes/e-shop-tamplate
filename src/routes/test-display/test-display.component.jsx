@@ -1,5 +1,8 @@
-import { useContext } from "react";
+import { useContext} from "react";
 import { CartContext } from "../../contexts/cart.context";
+import { useSelector } from "react-redux";
+import { CartProvider } from "../../contexts/cart.context";
+
 
 const TestDisplay = () => {
   const { cartItems } = useContext(CartContext);
@@ -11,7 +14,8 @@ const TestDisplay = () => {
       {cartItems.map((item) => (
         <div>
           <h2>{item.name}</h2>
-          <span>{item.id}</span>
+          <span>ID: {item.id}</span>
+          <span> Price:{item.price}</span>
         </div>
       ))}
     </div>
