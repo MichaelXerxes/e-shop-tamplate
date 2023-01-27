@@ -1,6 +1,6 @@
 import { compose,applyMiddleware} from "redux";
 import { legacy_createStore as createStore} from 'redux'
-//import logger from "redux-logger";
+import { persistStore, persistReducer } from "redux-persist";
 import { RootReducer } from "./root-reducer";
 
 
@@ -10,6 +10,10 @@ const loggerMiddleware=(store)=>(next)=>(action)=>{
     }
     next(action);
 };
+
+const persistConfig={
+    
+}
 
 const middleWares=[loggerMiddleware];
 

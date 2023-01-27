@@ -1,8 +1,7 @@
 import { CART_ACTION_TYPE } from "./cart.types";
 import { createAction } from "../../utils/reducer/reducer.utils";
 
-export const setIsCartOpen = (boolean) =>
-  createAction(CART_ACTION_TYPE.SET_CART_COUNT, boolean);
+
 
 const addCartItem = (cartItems, productToAdd) => {
   const existingCartItem = cartItems.find(
@@ -54,3 +53,5 @@ export const clearItemFromCart = (cartItems, clearItemToRemove) => {
   const newCartItems = clearCartItem(cartItems, clearItemToRemove);
   return createAction(CART_ACTION_TYPE.SET_CART_ITEMS, newCartItems);
 };
+export const setIsCartOpen = (boolean) =>
+  createAction(CART_ACTION_TYPE.SET_IS_CART_OPEN, boolean);
