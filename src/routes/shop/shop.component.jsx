@@ -5,7 +5,7 @@ import { Route,Routes } from "react-router-dom";
 import CategoriesPreviewPage from "../categories-preview/categories-preview.component";
 import Category from "../category/category.component";
 import { getCategoriesAndDocumentsFromFirestore } from "../../utils/firebase/firebase.utils";
-import { setCategories } from "../../store/categories/category.action";
+import { fetchCategoriesSuccess } from "../../store/categories/category.action";
 
 
 const Shop = () => {
@@ -16,7 +16,7 @@ const Shop = () => {
       //const categoryMap 
      const categoriesArray=await getCategoriesAndDocumentsFromFirestore('categories');
     
-      dispatch(setCategories(categoriesArray));
+      dispatch(fetchCategoriesSuccess(categoriesArray));
     };
     getCategoriesMap();
   }, []);
