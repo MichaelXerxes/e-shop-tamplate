@@ -12,7 +12,7 @@ import {
 
 export type FetchCategoriesStart = Action<CATEGORIES_ACTION_TYPE.FETCH_CATEGORIES_LOADING>;
 
-export type FetchCategoriesSuccess =ActionWithPayload<CATEGORIES_ACTION_TYPE.SET_CATEGORIES,Category[]>;
+export type FetchCategoriesSuccess =ActionWithPayload<CATEGORIES_ACTION_TYPE.FETCH_CATEGORIES_SUCCESS,Category[]>;
 
 export type FetchCategoriesFailed = ActionWithPayload<CATEGORIES_ACTION_TYPE.FETCH_CATEGORIES_FAILED,Error>;
 
@@ -22,7 +22,7 @@ export const fetchCategoriesStart = ():FetchCategoriesStart =>
   createAction(CATEGORIES_ACTION_TYPE.FETCH_CATEGORIES_LOADING);
 
 export const fetchCategoriesSuccess = (categoriesArray:Category[]):FetchCategoriesSuccess =>
-  createAction(CATEGORIES_ACTION_TYPE.SET_CATEGORIES, categoriesArray);
+  createAction(CATEGORIES_ACTION_TYPE.FETCH_CATEGORIES_SUCCESS, categoriesArray);
 
 export const fetchCategoriesFailed = (error:Error):FetchCategoriesFailed =>
   createAction(CATEGORIES_ACTION_TYPE.FETCH_CATEGORIES_FAILED, error);
