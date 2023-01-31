@@ -1,7 +1,9 @@
 import { USER_SOME_ACTION_TYPE } from "./user.types";
 
 const INITIAL_STATE={
-    currentUser:null
+    currentUser:null,
+    isLoading:false,
+    error:null,
 };
 
 ;
@@ -15,6 +17,14 @@ export const userReducerRedux=(state=INITIAL_STATE,action)=>{
                     ...state,
                     currentUser:payload
                 };
+        case USER_SOME_ACTION_TYPE.SIGN_IN_SUCCESS:
+                return {...state,currentUser:payload};
+        case USER_SOME_ACTION_TYPE.SIGN_IN_FAILED:
+                return{...state,error:payload};
+        case USER_SOME_ACTION_TYPE.GOOGLE_SIGN_IN_START:
+                return{...state,currentUser:payload};
+        case USER_SOME_ACTION_TYPE.EMAIL_SIGN_IN_START:
+                return {...state,currentUser:payload};
         default:
             return state;
     }

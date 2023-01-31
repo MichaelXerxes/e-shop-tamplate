@@ -9,25 +9,20 @@ import SignUpForm from "./routes/sign-up/sign-up-form.component";
 import TestDisplay from "./routes/test-display/test-display.component";
 import CheckOut from "./routes/checkout/checkout.component";
 import { useEffect } from "react";
-import { onAuthStateChangeListener,creatUserDocumentFromAuth } from "./utils/firebase/firebase.utils";
+import { onAuthStateChangeListener,creatUserDocumentFromAuth, getCurrentUser } from "./utils/firebase/firebase.utils";
 import { setCurrenUser } from "./store/user/user.action";
 
 
 
 const  App=()=> {
 
- const dispatch=useDispatch();
+ //const dispatch=useDispatch();
 
   useEffect(() => {
-    const unSubscribe = onAuthStateChangeListener((user) => {
-      if (user) {
-        creatUserDocumentFromAuth(user);
-      }
-      dispatch(setCurrenUser(user));
-    });
+    getCurrentUser();//.then((user)=>console.log('Current User Check', user));
 
-    return unSubscribe;
-  }, [dispatch]);
+    
+  }, []);
 
   return (
     <Routes>

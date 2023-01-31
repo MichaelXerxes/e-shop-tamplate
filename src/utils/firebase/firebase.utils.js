@@ -22,6 +22,7 @@ import {
   query,
   getDocs,
 } from "firebase/firestore";
+import { resolve } from "path";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD1Cslwd4B9mNkiIICGY1OLtlEF9WqyHWU",
@@ -128,3 +129,17 @@ export const singOutUser = async () => await signOut(auth);
 
 export const onAuthStateChangeListener = (callback) =>
   onAuthStateChanged(auth, callback);
+
+
+export const getCurrentUser=()=>{
+  return new Promise((resolve,reject)=>{
+    const unSubscribe=onAuthStateChanged(
+      auth,
+      (userAuth)=>{
+        unSubscribe();
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
+};

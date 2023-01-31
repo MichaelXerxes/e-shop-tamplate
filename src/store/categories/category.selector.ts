@@ -1,6 +1,11 @@
+import { type } from "os";
 import { createSelector } from "reselect";
 import { CategoriesState } from "./category.reducer";
 import { CategoryMap } from "./category.types";
+
+export type selectCategoryInititalState={
+
+};
 const selectCategoryReducer=(state):CategoriesState=>state.categories;
 
 export const selectCategories=createSelector(

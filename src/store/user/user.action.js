@@ -1,3 +1,15 @@
 import { createAction } from "../../utils/reducer/reducer.utils"
+import { cartReducer } from "../cart/cart.reducer";
 import { USER_SOME_ACTION_TYPE } from "./user.types";
 export  const setCurrenUser=(user )=>createAction(USER_SOME_ACTION_TYPE.SET_CURRENT_USER,user);
+
+
+export const checkUserSession=()=>createAction(USER_SOME_ACTION_TYPE.CHECK_USER_SESSION);
+
+export const  googleSIgnInStart=()=>createAction(USER_SOME_ACTION_TYPE.GOOGLE_SIGN_IN_START);
+
+export const emailSignInStart=(email,password)=>createAction(USER_SOME_ACTION_TYPE.EMAIL_SIGN_IN_START,{email,password});
+
+export const signInSuccess=(user)=>createAction(USER_SOME_ACTION_TYPE.SIGN_IN_SUCCESS,user);
+
+export const signInFailed=(error)=>createAction(USER_SOME_ACTION_TYPE.SIGN_IN_FAILED,error);

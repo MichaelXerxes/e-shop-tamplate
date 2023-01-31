@@ -95,6 +95,7 @@ export const creatUserDocumentFromAuth = async (
       });
     } catch (error) {}
   }
+  return userSnapshot;
 };
 
 export const createAuthUserWithEmAndPass = async (email, password) => {

@@ -5,7 +5,7 @@ import { Route,Routes } from "react-router-dom";
 import CategoriesPreviewPage from "../categories-preview/categories-preview.component";
 import Category from "../category/category.component";
 import { getCategoriesAndDocumentsFromFirestore } from "../../utils/firebase/firebase.utils";
-import { fetchCategoriesSuccess } from "../../store/categories/category.action";
+import { fetchCategoriesSuccess,fetchCategoriesStart } from "../../store/categories/category.action";
 
 
 const Shop = () => {
@@ -13,10 +13,13 @@ const Shop = () => {
   useEffect(() => {
     
     const getCategoriesMap = async () => {
-      //const categoryMap 
-     const categoriesArray=await getCategoriesAndDocumentsFromFirestore('categories');
+     
+    // const categoriesArray=await getCategoriesAndDocumentsFromFirestore('categories');
     
-      dispatch(fetchCategoriesSuccess(categoriesArray));
+      dispatch(
+        //fetchCategoriesSuccess(categoriesArray)
+        fetchCategoriesStart()
+        );
     };
     getCategoriesMap();
   }, []);
