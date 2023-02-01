@@ -1,4 +1,4 @@
-import {singInWithPopIpGoogle,creatUserDocumentFromAuth, auth} from '../../utils/firebase/firebase.utils';
+import {singInWithPopIpGoogle,creatUserDocumentFromAuth, auth} from '../../utils/fire-base/fire-base.utils';
 import { useEffect } from 'react';
 import './authentication.styles.scss';
 import { getRedirectResult } from 'firebase/auth';

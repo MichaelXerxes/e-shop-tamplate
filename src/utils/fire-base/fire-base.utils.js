@@ -22,7 +22,7 @@ import {
   query,
   getDocs,
 } from "firebase/firestore";
-import { resolve } from "path";
+//import { resolve } from "path";
 
 const firebaseConfig = {
   apiKey: "AIzaSyD1Cslwd4B9mNkiIICGY1OLtlEF9WqyHWU",

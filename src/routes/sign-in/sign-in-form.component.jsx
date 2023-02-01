@@ -2,10 +2,11 @@ import './sign-in-form.styles.scss';
 import { async } from "@firebase/util";
 import { useState } from "react";
 import { createAuthUserWithEmAndPass, creatUserDocumentFromAuth ,
-    signInAuthUserWithEmAndPass,singInWithPopIpGoogle} from "../../utils/firebase/firebase.utils";
+    signInAuthUserWithEmAndPass,singInWithPopIpGoogle} from "../../utils/fire-base/fire-base.utils";
 import FormInput from "../../components/form-input/form-input.component";
 import ButtonC,{BUTTON_TYPE_CLASSES} from '../../components/button/button.component';
-import { UserContext } from '../../contexts/user.context';
+import { useDispatch } from 'react-redux';
+import { googleSIgnInStart } from '../../store/user/user.action';
 const defaultformFields={
     email:'',
     password:'',
@@ -13,15 +14,15 @@ const defaultformFields={
 }
 const SignInForm=()=>{
     const [formFields,setFormFields]=useState(defaultformFields);
-
+    const dispatch=useDispatch();
     const{email,password}=formFields;
 
     const resetFormFields=()=>{
         resetFormFields();
     };
-    const signInWIthGoogleUser=async ()=>{
-        await singInWithPopIpGoogle();
-        //setCurrenrUser(user);
+    const signInWIthGoogleUser= ()=>{
+        dispatch(googleSIgnInStart());
+      
        
     }
 

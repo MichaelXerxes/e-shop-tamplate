@@ -9,20 +9,22 @@ import SignUpForm from "./routes/sign-up/sign-up-form.component";
 import TestDisplay from "./routes/test-display/test-display.component";
 import CheckOut from "./routes/checkout/checkout.component";
 import { useEffect } from "react";
-import { onAuthStateChangeListener,creatUserDocumentFromAuth, getCurrentUser } from "./utils/firebase/firebase.utils";
+import { getCurrentUser } from "./utils/fire-base/fire-base.utils";
 import { setCurrenUser } from "./store/user/user.action";
+import { checkUserSession } from "./store/user/user.action";
 
 
 
 const  App=()=> {
 
- //const dispatch=useDispatch();
+  const dispatch=useDispatch();
 
   useEffect(() => {
-    getCurrentUser();//.then((user)=>console.log('Current User Check', user));
+    // getCurrentUser();//.then((user)=>console.log('Current User Check', user));
+    dispatch(checkUserSession);
 
     
-  }, []);
+  }, [dispatch]);
 
   return (
     <Routes>
