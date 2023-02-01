@@ -20,11 +20,15 @@ export const userReducerRedux=(state=INITIAL_STATE,action)=>{
         case USER_SOME_ACTION_TYPE.SIGN_IN_SUCCESS:
                 return {...state,currentUser:payload};
         case USER_SOME_ACTION_TYPE.SIGN_IN_FAILED:
+        case USER_SOME_ACTION_TYPE.SIGN_UP_FAILED:
+        case USER_SOME_ACTION_TYPE.SING_OUT_FAILED:
                 return{...state,error:payload};
         case USER_SOME_ACTION_TYPE.GOOGLE_SIGN_IN_START:
                 return{...state,currentUser:payload};
         case USER_SOME_ACTION_TYPE.EMAIL_SIGN_IN_START:
                 return {...state,currentUser:payload};
+        case USER_SOME_ACTION_TYPE.SING_OUT_SUCCESS:
+                return{...state,currentUser:null};
         default:
             return state;
     }

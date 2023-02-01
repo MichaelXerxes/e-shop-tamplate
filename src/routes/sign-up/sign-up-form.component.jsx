@@ -4,7 +4,8 @@ import { useState} from "react";
 import { createAuthUserWithEmAndPass, creatUserDocumentFromAuth } from "../../utils/fire-base/fire-base.utils";
 import FormInput from '../../components/form-input/form-input.component';
 import ButtonC ,{BUTTON_TYPE_CLASSES}from '../../components/button/button.component';
-import { UserContext } from '../../contexts/user.context';
+import { useDispatch } from 'react-redux';
+import { signUpStart } from '../../store/user/user.action';
 const defaultformFields={
     displayName:'',
     email:'',
@@ -13,11 +14,10 @@ const defaultformFields={
 }
 const SignUpForm=()=>{
     const [formFields,setFormFields]=useState(defaultformFields);
-
+    const dispatch=useDispatch();
     const{displayName,email,password,confirmPassword}=formFields;
-    //that`s hooked component
-   // const {setCurrentUser}=useContext(UserContext);
-    console.log('hit');
+
+
     const resetFormFields=()=>{
         resetFormFields();
     };
@@ -32,15 +32,7 @@ const SignUpForm=()=>{
         }
 
         try{
-            const {user}=await createAuthUserWithEmAndPass(
-                email,
-                password
-                );
-
-            //setCurrentUser(user);
-
-            await creatUserDocumentFromAuth(user,{displayName});
-            // if is succeeded
+          dispatch(signUpStart(email,password,displayName));
         }catch(e){
             if(e.code==='auth/email-already-in-use'){
                 alert('Email already in use !!!');
