@@ -2,7 +2,7 @@ import { type } from "os";
 import { createSelector } from "reselect";
 import { CategoriesState } from "./category.reducer";
 import { CategoryMap } from "./category.types";
-
+import { CATEGORIES_INITIAL_STATE } from "./category.reducer";
 export type selectCategoryInititalState={
 
 };
