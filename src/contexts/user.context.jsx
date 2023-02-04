@@ -2,7 +2,7 @@ import { createContext, useEffect, useReducer } from "react";
 import {
   onAuthStateChangeListener,
   creatUserDocumentFromAuth,
-} from "../utils/fire-base/fire-base.utils";
+} from "../utils/fire-base/firebase.utils";
 import { createAction } from "../utils/reducer/reducer.utils";
 // actual value
 export const UserContext = createContext({

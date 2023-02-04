@@ -4,7 +4,7 @@ import { USER_SOME_ACTION_TYPE } from "./user.types";
 
 import { signInSuccess, signInFailed, signUpFailed, signUpSuccess, signOutSuccess, signOutFailed } from "./user.action";
 import { isExportSpecifier } from "typescript";
-import { getCurrentUser ,creatUserDocumentFromAuth, signInAuthUserWithEmAndPass, createAuthUserWithEmAndPass, singOutUser} from "../../utils/fire-base/fire-base.utils";
+import { getCurrentUser ,creatUserDocumentFromAuth, signInAuthUserWithEmAndPass, createAuthUserWithEmAndPass, singOutUser} from "../../utils/fire-base/firebase.utils";
 import { signInWithPopup } from "firebase/auth";
 import { createAction } from "../../utils/reducer/reducer.utils";
 

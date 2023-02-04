@@ -9,7 +9,7 @@ import SignUpForm from "./routes/sign-up/sign-up-form.component";
 import TestDisplay from "./routes/test-display/test-display.component";
 import CheckOut from "./routes/checkout/checkout.component";
 import { useEffect } from "react";
-import { getCurrentUser } from "./utils/fire-base/fire-base.utils";
+import { getCurrentUser } from "./utils/fire-base/firebase.utils";
 import { setCurrenUser } from "./store/user/user.action";
 import { checkUserSession } from "./store/user/user.action";
 

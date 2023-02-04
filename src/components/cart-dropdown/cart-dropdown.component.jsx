@@ -1,7 +1,7 @@
 import {CartDropdownnConatainer,EmptyMessage,CartItemDiv} from'./cart-dropdown.styles.jsx';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { selectCartItems } from '../../store/cart/cart.selector.js';
+import { selectCartItems } from '../../store/cart/cart.selector';
 
 import ButtonC from '../button/button.component';
 import CartItem from '../cart-item/cart-item.component';

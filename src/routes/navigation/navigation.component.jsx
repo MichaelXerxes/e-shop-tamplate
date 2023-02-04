@@ -10,7 +10,7 @@ import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component
 import { selectIsOpen } from "../../store/cart/cart.selector";
 import { useSelector,useDispatch } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
-import { singOutUser } from "../../utils/fire-base/fire-base.utils";
+import { singOutUser } from "../../utils/fire-base/firebase.utils";
 
 const Navigation = () => {
   

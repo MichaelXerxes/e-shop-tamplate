@@ -1,7 +1,7 @@
 import './sign-up-form.styles.scss';
 import { async } from "@firebase/util";
 import { useState} from "react";
-import { createAuthUserWithEmAndPass, creatUserDocumentFromAuth } from "../../utils/fire-base/fire-base.utils";
+import { createAuthUserWithEmAndPass, creatUserDocumentFromAuth } from "../../utils/fire-base/firebase.utils";
 import FormInput from '../../components/form-input/form-input.component';
 import ButtonC ,{BUTTON_TYPE_CLASSES}from '../../components/button/button.component';
 import { useDispatch } from 'react-redux';

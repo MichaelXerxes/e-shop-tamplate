@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { Route,Routes } from "react-router-dom";
 import CategoriesPreviewPage from "../categories-preview/categories-preview.component";
 import Category from "../category/category.component";
-import { getCategoriesAndDocumentsFromFirestore } from "../../utils/fire-base/fire-base.utils";
+import { getCategoriesAndDocumentsFromFirestore } from "../../utils/fire-base/firebase.utils";
 import { fetchCategoriesSuccess,fetchCategoriesStart } from "../../store/categories/category.action";
 
 

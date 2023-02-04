@@ -1,5 +1,5 @@
 import { createContext, useState, useEffect } from "react";
-import {getCategoriesAndDocumentsFromFirestore} from "../utils/fire-base/fire-base.utils.js";
+import {getCategoriesAndDocumentsFromFirestore} from "../utils/fire-base/firebase.utils.js";
 
 
 export const CategoriesContext = createContext({
