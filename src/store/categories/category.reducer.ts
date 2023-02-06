@@ -51,4 +51,4 @@ export const categoriesReducer=(state=CATEGORIES_INITIAL_STATE,action={} as AnyA
     //     default:
     //         return state;
     // }
-}
+};

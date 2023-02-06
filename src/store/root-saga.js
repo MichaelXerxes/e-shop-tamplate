@@ -3,8 +3,4 @@ import { categoriesSaga } from './categories/cateory.saga';
 import { userSagas } from './user/user.saga';
 export function* rootSaga(){
     yield all([call(categoriesSaga),call(userSagas)]);
-};
-
-export function * createSagaMiddleware(){
-
-};
+}

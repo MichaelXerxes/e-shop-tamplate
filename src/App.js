@@ -21,7 +21,7 @@ const  App=()=> {
 
   useEffect(() => {
     // getCurrentUser();//.then((user)=>console.log('Current User Check', user));
-    dispatch(checkUserSession);
+    dispatch(checkUserSession());
 
     
   }, [dispatch]);

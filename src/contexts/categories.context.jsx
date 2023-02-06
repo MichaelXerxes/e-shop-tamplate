@@ -1,5 +1,5 @@
-import { createContext, useState, useEffect } from "react";
-import {getCategoriesAndDocumentsFromFirestore} from "../utils/fire-base/firebase.utils.js";
+import { createContext, useState} from "react";
+// import {getCategoriesAndDocumentsFromFirestore} from "../utils/fire-base/firebase.utils.js";
 
 
 export const CategoriesContext = createContext({
@@ -11,15 +11,15 @@ export const CategoriesProvider = ({ children }) => {
 
 
 
-  useEffect(() => {
+  // useEffect(() => {
     
-    const getCategoriesMap = async () => {
-      const categoryMap =await getCategoriesAndDocumentsFromFirestore('categories');
+  //   const getCategoriesMap = async () => {
+  //     const categoryMap =await getCategoriesAndDocumentsFromFirestore('categories');
     
-      setCategoriesMaps(categoryMap);
-    };
-    getCategoriesMap();
-  }, []);
+  //     setCategoriesMaps(categoryMap);
+  //   };
+  //   getCategoriesMap();
+  // }, []);
 
   const value = { categoriesMap};
   return (
